@@ -1,1 +1,69 @@
-<p>pedidos-pendientes works!</p>
+<div class="container">
+  <h1>Pedidos Pendientes</h1>
+
+  <dx-data-grid
+    id="gridContainer"
+    [dataSource]="listPedidosPendientes"
+    [showBorders]="true"
+    [focusedRowEnabled]="false"
+    [rowAlternationEnabled]="false"
+    keyExpr="IdCliente"
+    [columnHidingEnabled]="true"
+  >
+    <dxo-group-panel [visible]="false"></dxo-group-panel>
+    <dxo-search-panel [visible]="true"></dxo-search-panel>
+
+    <dxo-column-chooser [enabled]="false"></dxo-column-chooser>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+
+    <dxo-paging [pageSize]="5"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[5, 10, 15, 20]"
+      [showInfo]="true"
+      [showNavigationButtons]="true"
+    ></dxo-pager>
+
+    <dxi-column
+      dataField="IdCliente"
+      caption="IdCliente"
+      dataType="number"
+      [(visible)]="isVisiblegridContainer"
+    ></dxi-column>
+    <dxi-column
+      dataField="Cliente"
+      caption="Cliente"
+      dataType="string"
+      [(visible)]="isVisiblegridContainer"
+    ></dxi-column>
+    <dxi-column
+      dataField="Fecha"
+      caption="Fecha"
+      dataType="date"
+      width="100"
+      alignment="center"
+      format="dd/MM/yyyy"
+    ></dxi-column>
+
+    <dxi-column
+      dataField="Solicitud"
+      caption="Solicitud"
+      alignment="left"
+      width="100"
+    ></dxi-column>
+    <dxi-column
+      dataField="Cantidad"
+      caption="Cantidad"
+      dataType="number"
+      alignment="right"
+      width="100"
+    ></dxi-column>
+    <dxi-column
+      dataField="Total"
+      caption="Total"
+      dataType="number"
+      alignment="right"
+      width="100"
+    ></dxi-column>
+  </dx-data-grid>
+</div>
