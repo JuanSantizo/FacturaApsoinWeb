@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PedidosPendientesModule } from './pedidos-pendientes/pedidos-pendientes.module';
 import { TestModule } from './test/test.module';
+import { SEmpresaModule } from './s-empresa/s-empresa.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { TestModule } from './test/test.module';
     BrowserModule,
     AppRoutingModule,
     PedidosPendientesModule,
+    SEmpresaModule,
     TestModule,
   ],
   providers: [],
