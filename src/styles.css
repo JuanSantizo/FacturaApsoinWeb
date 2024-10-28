@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*Centrar verticalmente el contenido de un div*/
+.CenterVertically {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Control small donde indicamos el error del control */
+small {
+  color: red;
+  font-size: 10px;
+}
+/* Indicamos el borde del control cuando presenta error */
+.invalid-input {
+  border-color: rgba(230, 29, 18, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+    0 0 8px rgba(230, 29, 18, 0.6);
+  outline: 0 none;
+}
+
+.input-100 {
+  width: 100%;
+}
+
+.input-lectura {
+  background-color: rgb(240, 183, 108);
+}
