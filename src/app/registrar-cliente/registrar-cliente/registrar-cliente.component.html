@@ -1,0 +1,226 @@
+<div class="container">
+  <div class="modal-header">
+    <h2 class="modal-title">Registrar Cliente</h2>
+  </div>
+
+  <form [formGroup]="formRegistrarCliente" autocomplete="off">
+    <!-- NIT - DPI -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="nitControl">Nit</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="nitControl"
+              formControlName="nitControl"
+              type="text"
+              placeholder="Nit"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="dPIControl">DPI</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="dPIControl"
+              formControlName="dPIControl"
+              type="text"
+              placeholder="DPI"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nombre - Apellido -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="nombreControl">Nombre</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="nombreControl"
+              formControlName="nombreControl"
+              type="text"
+              placeholder="Nombre"
+              [ngClass]="{
+                'invalid-input': isValidField('nombreControl')
+              }"
+            />
+          </div>
+          <small *ngIf="isValidField('nombreControl')">{{
+            getErrorMessage("nombreControl")
+          }}</small>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="apellidoControl">Apellido</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="apellidoControl"
+              formControlName="apellidoControl"
+              type="text"
+              placeholder="Apellido"
+              [ngClass]="{
+                'invalid-input': isValidField('apellidoControl')
+              }"
+            />
+          </div>
+          <small *ngIf="isValidField('apellidoControl')">{{
+            getErrorMessage("apellidoControl")
+          }}</small>
+        </div>
+      </div>
+    </div>
+    <!-- Direccion -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div
+            class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2 CenterVertically"
+          >
+            <label for="direccionControl">Direccion</label>
+          </div>
+          <div
+            class="col-xxl-11 col-xl-11 col-lg-11 col-md-10 col-sm-10 col-xs-10 CenterVertically"
+          >
+            <input
+              class="form-control"
+              id="direccionControl"
+              formControlName="direccionControl"
+              type="text"
+              placeholder="Direccion"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Telefono - Celular -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="telefonoControl">Telefono</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="telefonoControl"
+              formControlName="telefonoControl"
+              mask="00-00-00-00"
+              type="text"
+              placeholder="Telefono"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="celularControl">Celular</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="celularControl"
+              formControlName="celularControl"
+              type="text"
+              placeholder="Celular"
+              mask="00-00-00-00"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Oficina - Email -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="oficinaControl">Oficina</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="oficinaControl"
+              formControlName="oficinaControl"
+              type="text"
+              placeholder="Oficina"
+              mask="00-00-00-00"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="emailControl">Email</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="emailControl"
+              formControlName="emailControl"
+              type="text"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Botones -->
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="confirm-button">
+            <a (click)="cancelarOperacion()">
+              <button class="btn btn-danger">Cerrar</button>
+            </a>
+            <a class="mr-2" style="padding-left: 10px">
+              <button
+                class="btn btn-primary"
+                [disabled]="!formRegistrarCliente.valid"
+                (click)="ejecutarOperacion()"
+              >
+                {{ botonAccion }}
+              </button>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

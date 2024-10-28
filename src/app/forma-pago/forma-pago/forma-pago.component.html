@@ -1,0 +1,220 @@
+<div class="container">
+  <div class="modal-header">
+    <h2 class="modal-title">Forma de Pago</h2>
+  </div>
+
+  <form [formGroup]="formFormaPago" autocomplete="off">
+    <!-- Capital - Porcentaje -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="capitalControl">Capital</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="capitalControl"
+              formControlName="capitalControl"
+              type="text"
+              placeholder="Capital"
+              mask="separator.2"
+              thousandSeparator=","
+              style="text-align: right"
+              [ngClass]="{
+                'invalid-input': isValidField('capitalControl')
+              }"
+            />
+          </div>
+          <small *ngIf="isValidField('capitalControl')">{{
+            getErrorMessage("capitalControl")
+          }}</small>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="porcentajeControl">Porcentaje</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <input
+              class="form-control"
+              id="porcentajeControl"
+              formControlName="porcentajeControl"
+              type="text"
+              placeholder="Porcentaje"
+              mask="separator.2"
+              thousandSeparator=","
+              style="text-align: right"
+              [ngClass]="{
+                'invalid-input': isValidField('porcentajeControl')
+              }"
+            />
+          </div>
+          <small *ngIf="isValidField('porcentajeControl')">{{
+            getErrorMessage("porcentajeControl")
+          }}</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan de Pago -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div class="col-2 CenterVertically">
+            <label for="planPagoControl">Plan de Pago</label>
+          </div>
+          <div class="col-10 CenterVertically">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="planPagoControl"
+            >
+              <option
+                *ngFor="let planPago of planPagoDataSource"
+                value="{{ planPago.PagoId }}"
+              >
+                {{ planPago.Descripcion }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      ></div>
+    </div>
+    <!-- Cuotas -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div
+            class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2 CenterVertically"
+          >
+            <label for="cuotasControl">Cuotas</label>
+          </div>
+          <div
+            class="col-xxl-11 col-xl-11 col-lg-11 col-md-10 col-sm-10 col-xs-10 CenterVertically"
+          >
+            <input
+              class="form-control"
+              id="cuotasControl"
+              formControlName="cuotasControl"
+              type="text"
+              placeholder="Cuotas"
+              mask="separator.2"
+              thousandSeparator=","
+              style="text-align: right"
+              [ngClass]="{
+                'invalid-input': isValidField('cuotasControl')
+              }"
+            />
+          </div>
+          <small *ngIf="isValidField('cuotasControl')">{{
+            getErrorMessage("cuotasControl")
+          }}</small>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      ></div>
+    </div>
+
+    <!-- Intereses -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div
+            class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2 CenterVertically"
+          >
+            <label for="interesesControl">Intereses</label>
+          </div>
+          <div
+            class="col-xxl-11 col-xl-11 col-lg-11 col-md-10 col-sm-10 col-xs-10 CenterVertically"
+          >
+            <input
+              class="form-control input-lectura"
+              id="interesesControl"
+              formControlName="interesesControl"
+              type="text"
+              placeholder="Intereses"
+              readonly
+              mask="separator.2"
+              thousandSeparator=","
+              style="text-align: right"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      ></div>
+    </div>
+
+    <!-- Pagos -->
+    <div class="form-group row">
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      >
+        <div class="row">
+          <div
+            class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2 CenterVertically"
+          >
+            <label for="pagoControl">Pago</label>
+          </div>
+          <div
+            class="col-xxl-11 col-xl-11 col-lg-11 col-md-10 col-sm-10 col-xs-10 CenterVertically"
+          >
+            <input
+              class="form-control input-lectura"
+              id="pagoControl"
+              formControlName="pagoControl"
+              type="text"
+              placeholder="Pago"
+              readonly
+              mask="separator.2"
+              thousandSeparator=","
+              style="text-align: right"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12"
+      ></div>
+    </div>
+
+    <!-- Botones -->
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="confirm-button">
+            <a (click)="cancelarOperacion()">
+              <button class="btn btn-danger">Cerrar</button>
+            </a>
+            <a class="mr-2" style="padding-left: 10px">
+              <button
+                class="btn btn-primary"
+                [disabled]="!formFormaPago.valid"
+                (click)="ejecutarOperacion()"
+              >
+                {{ botonAccion }}
+              </button>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
