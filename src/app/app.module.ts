@@ -9,10 +9,12 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 import { PedidosPendientesModule } from './pedidos-pendientes/pedidos-pendientes.module';
 import { TestModule } from './test/test.module';
+
 import { RegistrarClienteModule } from './registrar-cliente/registrar-cliente.module';
 import { FormaPagoModule } from './forma-pago/forma-pago.module';
 import { IngresoDetalleModule } from './ingreso-detalle/ingreso-detalle.module';
 import { AccesoModule } from './acceso/acceso.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +29,7 @@ import { AccesoModule } from './acceso/acceso.module';
     NgxMaskPipe,
 
     PedidosPendientesModule,
+    SEmpresaModule,
     TestModule,
     RegistrarClienteModule,
     FormaPagoModule,
